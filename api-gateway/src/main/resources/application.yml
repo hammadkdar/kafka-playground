@@ -6,10 +6,39 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: audit-service
-          uri: http://localhost:8889
-          predicates:
-            - Path=/api/audit/**
-          filters:
-            - StripPrefix=1
+      server:
+        webflux:
+          use-forward-headers: true
+          httpclient:
+            connect-timeout: 5000
+            response-timeout: 3s
+          routes:
+            - id: sea-register-service
+              uri: ${sea-register-service.url:http://localhost:8102/sea-register-service}
+              predicates:
+                - Path=/sea-register-service/**
+              metadata:
+                connect-timeout: 5000
+                response-timeout: 3s
+              filters:
+                - StripPrefix=1
+                - name: CircuitBreaker
+                  args:
+                    name: sea-register-service-circuit-breaker
+                    fallbackUri: forward:/fallback/sea-register-service
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 100
+                    redis-rate-limiter.burstCapacity: 200
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@customKeyResolver}"
+                - name: Retry
+                  args:
+                    retries: 3
+                    statuses: BAD_GATEWAY, GATEWAY_TIMEOUT
+                    methods: GET, POST, PATCH, PUT, DELETE
+                    backoff:
+                      first-backoff: 50ms
+                      max-backoff: 500ms
+                      factor: 2
+                      basedOnPreviousValue: true
