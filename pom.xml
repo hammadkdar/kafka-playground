@@ -15,10 +15,14 @@
     </developers>
     <description>A project containing Spring Cloud API Gateway, Spring Modulith, Spring Kafka and Audit Service.</description>
     <properties>
+        <java.version>21</java.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <spring-boot.version>3.5.1</spring-boot.version>
+        <spring-cloud.version>2023.0.4</spring-cloud.version>
         <lombok.version>1.18.32</lombok.version>
+        <mysql.connector.version>8.3.0</mysql.connector.version>
+        <opentelemetry.version>1.37.0</opentelemetry.version>
         <maven.plugin.jacoco.version>0.8.9</maven.plugin.jacoco.version>
         <maven.plugin.springboot.version>3.2.1</maven.plugin.springboot.version>
     </properties>
@@ -40,9 +44,27 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2023.0.4</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-bom</artifactId>
+                <version>1.15.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-exporter-otlp</artifactId>
+                <version>${opentelemetry.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.connector.version}</version>
+                <scope>runtime</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

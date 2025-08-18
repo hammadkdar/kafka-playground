@@ -1,1 +1,6 @@
+com/karamatics/audit/audit_service/entity/SemActivityLog$SemActivityLogBuilder.class
 com/karamatics/audit/audit_service/AuditServiceApplication.class
+com/karamatics/audit/audit_service/repository/SemActivityLogRepository.class
+com/karamatics/audit/audit_service/entity/SemActivityLog.class
+com/karamatics/audit/audit_service/controller/SemActivityLogController.class
+com/karamatics/audit/audit_service/service/SemActivityLogService.class

@@ -1,1 +1,5 @@
 /Users/hammad.karamat/work/projects/kafka-playground/audit-service/src/main/java/com/karamatics/audit/audit_service/AuditServiceApplication.java
+/Users/hammad.karamat/work/projects/kafka-playground/audit-service/src/main/java/com/karamatics/audit/audit_service/controller/SemActivityLogController.java
+/Users/hammad.karamat/work/projects/kafka-playground/audit-service/src/main/java/com/karamatics/audit/audit_service/entity/SemActivityLog.java
+/Users/hammad.karamat/work/projects/kafka-playground/audit-service/src/main/java/com/karamatics/audit/audit_service/repository/SemActivityLogRepository.java
+/Users/hammad.karamat/work/projects/kafka-playground/audit-service/src/main/java/com/karamatics/audit/audit_service/service/SemActivityLogService.java

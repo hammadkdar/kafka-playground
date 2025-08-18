@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/audit-service/index.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/audit-service/index.js" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/audit-service/src/main/resources/init.sql">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/audit-service/src/main/resources/init.sql" />
+              <option name="originalContent" value="-- Create database&#10;CREATE OR REPLACE DATABASE IF NOT EXISTS activity_log_db;&#10;USE activity_log_db;&#10;&#10;-- Create user&#10;CREATE USER IF NOT EXISTS 'activity_log_service'@'%' IDENTIFIED BY 'password';&#10;&#10;-- Grant privileges&#10;GRANT ALL PRIVILEGES ON activity_log_db.* TO 'activity_log_service'@'%';&#10;&#10;-- Apply changes&#10;FLUSH PRIVILEGES;" />
+              <option name="updatedContent" value="-- Create schema (H2 uses schemas instead of databases)&#10;CREATE SCHEMA IF NOT EXISTS ACTIVITY_LOG_DB;&#10;SET SCHEMA ACTIVITY_LOG_DB;&#10;&#10;-- You can add table creation statements below&#10;-- Example:&#10;-- CREATE TABLE IF NOT EXISTS ACTIVITY_LOG (&#10;--     ID INT AUTO_INCREMENT PRIMARY KEY,&#10;--     ACTION VARCHAR(255),&#10;--     CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP&#10;-- );&#10;&#10;-- No user creation or privilege grants needed for H2" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

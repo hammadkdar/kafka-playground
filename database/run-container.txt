@@ -1,0 +1,1 @@
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_ALLOW_PUBLIC_KEY_RETRIEVAL=true -v $(pwd)/init.sql:/docker-entrypoint-initdb.d/init.sql -p 3306:3306 -d mysql:9.3.0

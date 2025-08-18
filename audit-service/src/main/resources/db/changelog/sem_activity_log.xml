@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1-create-sem-activity-log" author="copilot">
+        <createTable tableName="sem_activity_log">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="request_id" type="VARCHAR(255)"/>
+            <column name="method" type="VARCHAR(16)"/>
+            <column name="path" type="VARCHAR(1024)"/>
+            <column name="query_params" type="TEXT"/>
+            <column name="request_headers" type="TEXT"/>
+            <column name="request_body" type="LONGTEXT"/>
+            <column name="client_ip" type="VARCHAR(64)"/>
+            <column name="target_service" type="VARCHAR(255)"/>
+            <column name="response_headers" type="TEXT"/>
+            <column name="response_body" type="LONGTEXT"/>
+            <column name="status" type="VARCHAR(64)"/>
+            <column name="request_timestamp" type="TIMESTAMP(6)"/>
+            <column name="response_timestamp" type="TIMESTAMP(6)"/>
+            <column name="status_code" type="INT"/>
+            <column name="processing_time_ms" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+
